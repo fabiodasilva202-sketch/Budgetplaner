@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1B2533">
+<title>Budget CHF</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Budget CHF">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F4F1; --ink:#1B2533; --muted:#5E6875; --line:#DDE1DA; --card:#fff;
+    --fix:#2F5D8C; --var:#C9962B; --save:#3E7D52; --rest:#9AA3AD; --alarm:#B8322A;
+    --c:var(--ink);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%}
+  body{background:var(--paper);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;
+    font-size:16px;line-height:1.45;font-variant-numeric:tabular-nums;
+    display:flex;flex-direction:column;max-width:560px;margin:0 auto}
+
+  /* Kopf mit Rest + Streifen */
+  .top{position:sticky;top:0;z-index:5;background:var(--ink);color:#fff;
+    padding:calc(14px + env(safe-area-inset-top)) 18px 14px}
+  .top-row{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+  .top small{display:block;font-size:.8rem;opacity:.7}
+  .rest{font-size:1.9rem;font-weight:700;line-height:1.1;letter-spacing:-.01em}
+  .rest.neg{color:#FF9B93}
+  .inc{text-align:right;font-weight:600}
+  .strip{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-top:12px;background:rgba(255,255,255,.15);position:relative}
+  .strip div{height:100%;transition:width .3s ease}
+  .strip::after{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;border-left:2px solid #fff;opacity:.6}
+  .s-fix{background:#6C9BCB}.s-var{background:var(--var)}.s-save{background:#6DB585}.s-rest{background:var(--rest)}
+
+  main{flex:1;padding:16px 14px calc(96px + env(safe-area-inset-bottom))}
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;margin:4px 4px 12px}
+  .sec-head h1{font-size:1.35rem;margin:0}
+  .sec-head span{font-weight:700;color:var(--c)}
+  .sec-head p{margin:2px 0 0;color:var(--muted);font-size:.85rem}
+
+  .item{background:var(--card);border-radius:12px;padding:12px 14px;margin-bottom:10px;border-left:5px solid var(--c);
+    display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+  .item .name{grid-column:1/2;font:inherit;font-size:.92rem;color:var(--muted);border:none;background:none;padding:2px 0;width:100%}
+  .item .del{grid-column:2/3;grid-row:1/2;border:none;background:none;color:var(--muted);font-size:1.4rem;width:40px;height:32px;line-height:1;margin-right:-8px}
+  .amt-wrap{grid-column:1/3;display:flex;align-items:baseline;gap:8px}
+  .amt{font:inherit;font-size:1.5rem;font-weight:600;border:none;background:none;width:100%;padding:2px 0;color:var(--ink)}
+  .cur{color:var(--muted);font-size:.9rem}
+  .pct{color:var(--muted);font-size:.85rem;white-space:nowrap}
+  input:focus{outline:none}
+  .item:focus-within{box-shadow:0 0 0 2px var(--c)}
+  button:focus-visible{outline:2px solid var(--fix);outline-offset:2px}
+
+  .add{width:100%;min-height:52px;border:2px dashed var(--line);border-radius:12px;background:none;
+    font:inherit;color:var(--muted);font-weight:500}
+
+  /* Auswertung */
+  .card{background:var(--card);border-radius:12px;padding:16px;margin-bottom:12px}
+  .card h2{font-size:1.05rem;margin:0 0 10px}
+  .line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #EEF0EC}
+  .line:last-child{border-bottom:none}
+  .line.total{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;font-size:1.1rem;margin-top:4px;padding-top:12px}
+  .line b{font-weight:600}
+  .neg{color:var(--alarm)}
+  .bar{margin:12px 0}
+  .bar-l{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:5px}
+  .track{position:relative;height:12px;background:#E7EAE5;border-radius:6px}
+  .fill{height:100%;border-radius:6px;transition:width .3s ease}
+  .goal{position:absolute;top:-4px;bottom:-4px;border-left:2px solid var(--ink)}
+  .ok{color:var(--save)}.warn{color:#9A6F12}.bad{color:var(--alarm)}
+  ul{margin:0;padding-left:18px} li{margin-bottom:10px}
+  .tools{display:flex;gap:10px}
+  .tools button{flex:1;min-height:48px;border-radius:10px;border:1px solid var(--line);background:var(--card);font:inherit}
+  .hint{font-size:.82rem;color:var(--muted);margin:8px 0 0}
+
+  /* Navigation unten */
+  nav{position:fixed;bottom:0;left:0;right:0;z-index:6;background:var(--card);border-top:1px solid var(--line);
+    display:flex;justify-content:center;padding-bottom:env(safe-area-inset-bottom)}
+  nav .in{display:flex;width:100%;max-width:560px}
+  nav button{flex:1;border:none;background:none;font:inherit;font-size:.72rem;color:var(--muted);
+    padding:8px 2px 10px;min-height:62px;display:flex;flex-direction:column;align-items:center;gap:4px}
+  nav button i{display:block;width:26px;height:6px;border-radius:3px;background:var(--line)}
+  nav button[aria-selected="true"]{color:var(--ink);font-weight:600}
+  nav button[aria-selected="true"] i{background:var(--dot)}
+  .toast{position:fixed;left:50%;bottom:calc(76px + env(safe-area-inset-bottom));transform:translateX(-50%);
+    background:var(--ink);color:#fff;padding:8px 14px;border-radius:20px;font-size:.85rem;opacity:0;transition:opacity .2s;pointer-events:none}
+  .toast.show{opacity:1}
+  @media (prefers-reduced-motion:reduce){.strip div,.fill,.toast{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <div><small>Unverplanter Rest</small><div class="rest" id="rest"></div></div>
+    <div class="inc"><small>Einnahmen</small><span id="inc"></span></div>
+  </div>
+  <div class="strip" id="strip" aria-hidden="true"></div>
+</header>
+
+<main id="view"><noscript><p>Dieses Programm braucht JavaScript. Öffne die Seite bitte in Safari.</p></noscript></main>
+
+<nav aria-label="Bereiche"><div class="in" id="nav"></div></nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const SAULE3A_MAX = 7258;
+const STORE_KEY = "budgetplaner-chf-v1";
+
+const TABS = [
+  {k:"income", label:"Einnahmen", title:"Einnahmen", color:"var(--ink)", sub:"Netto pro Monat"},
+  {k:"fix", label:"Fix", title:"Fixkosten", color:"var(--fix)", sub:"Miete, Krankenkasse, Steuern …"},
+  {k:"var", label:"Variabel", title:"Variable Kosten", color:"var(--var)", sub:"Alltag und Freizeit"},
+  {k:"save", label:"Sparen", title:"Sparen & Vorsorge", color:"var(--save)", sub:"Säule 3a und Notgroschen"},
+  {k:"eval", label:"Auswertung", title:"Auswertung", color:"var(--ink)"}
+];
+
+const EXAMPLE = {
+  income:[["Hauptgehalt (netto)",5800],["13. Monatslohn anteilig / Nebeneinkünfte",480]],
+  fix:[["Miete inkl. Nebenkosten",1750],["Krankenkasse (Grund + Zusatz)",420],["Versicherungen (Hausrat, Haftpflicht, Auto)",60],["Steuern (Rückstellung)",650],["Mobilität (ÖV/GA, Auto, Benzin)",260],["Abos (Internet, Handy, Streaming)",150],["Sonstige Fixkosten",50]],
+  var:[["Lebensmittel & Haushalt",650],["Freizeit, Hobbys & Ausgehen",400],["Kleidung & persönliche Pflege",150],["Unvorhergesehenes / Puffer",200]],
+  save:[["Säule 3a",605],["Freies Sparen / Notgroschen",800]]
+};
+
+let uid = 0, tab = "income", touched = false;
+const build = s => Object.fromEntries(Object.entries(s).map(([k,a]) => [k, a.map(([name,amount]) => ({id:++uid,name,amount}))]));
+let data = build(EXAMPLE);
+
+const fmt = n => (n<0?"−":"") + Math.abs(n).toLocaleString("de-CH",{minimumFractionDigits:2,maximumFractionDigits:2});
+const chf = n => fmt(n) + " CHF";
+const pct = (n,t) => t>0 ? (n/t*100).toLocaleString("de-CH",{minimumFractionDigits:1,maximumFractionDigits:1})+" %" : "–";
+const sum = k => data[k].reduce((s,i)=>s+(Number(i.amount)||0),0);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const parse = v => { const n = parseFloat(String(v).replace(/[’' ]/g,"").replace(",", ".")); return isNaN(n)?0:n; };
+const totals = () => { const inc=sum("income"),fix=sum("fix"),vr=sum("var"),sv=sum("save"); return {inc,fix,vr,sv,avail:inc-fix-vr,rest:inc-fix-vr-sv}; };
+
+function renderNav(){
+  document.getElementById("nav").innerHTML = TABS.map(t =>
+    `<button role="tab" data-tab="${t.k}" aria-selected="${t.k===tab}" style="--dot:${t.color}"><i></i>${t.label}</button>`).join("");
+}
+
+function renderView(){
+  const t = TABS.find(x=>x.k===tab), v = document.getElementById("view");
+  v.style.setProperty("--c", t.color);
+  if(tab==="eval"){ renderEval(v); return; }
+  const inc = sum("income");
+  v.innerHTML = `
+    <div class="sec-head"><div><h1>${t.title}</h1><p>${t.sub}</p></div><span id="secSum">${chf(sum(tab))}</span></div>
+    ${data[tab].map(i => `
+      <div class="item" data-id="${i.id}">
+        <input class="name" value="${esc(i.name)}" aria-label="Bezeichnung" data-f="name">
+        <button class="del" aria-label="${esc(i.name)} entfernen">×</button>
+        <div class="amt-wrap">
+          <input class="amt" type="text" inputmode="decimal" value="${i.amount||""}" placeholder="0" aria-label="Betrag in CHF für ${esc(i.name)}" data-f="amount">
+          <span class="cur">CHF</span>
+          <span class="pct" id="p-${i.id}">${tab==="income"?"":pct(Number(i.amount)||0,inc)}</span>
+        </div>
+      </div>`).join("")}
+    <button class="add" id="add">+ Position hinzufügen</button>`;
+}
+
+function renderEval(v){
+  const {inc,fix,vr,sv,avail,rest} = totals();
+  const p = x => inc>0 ? x/inc*100 : 0;
+  const rows = [["Bedürfnisse (Fixkosten)",50,p(fix),true,"var(--fix)"],["Wünsche (variabel)",30,p(vr),true,"var(--var)"],["Sparen (inkl. Rest)",20,p(sv+Math.max(rest,0)),false,"var(--save)"]];
+  const rate = (val,t,low) => { const d = low?val-t:t-val; return d<=0?["ok","im Rahmen"]:d<=5?["warn","knapp daneben"]:["bad","deutlich daneben"]; };
+
+  const notes = [];
+  if(inc<=0) notes.push("Trage zuerst deine Einnahmen ein, damit die Auswertung berechnet werden kann.");
+  else{
+    if(rest<0) notes.push(`<span class="bad">Dein Budget ist um ${chf(-rest)} überzogen.</span> Kürze variable Kosten oder passe das Sparziel an.`);
+    else if(rest>50) notes.push(`Du hast ${chf(rest)} unverplant. Weise den Betrag bewusst dem Sparen oder dem Puffer zu.`);
+    const m = data.fix.find(i=>/miete/i.test(i.name));
+    if(m){ const pm=(Number(m.amount)||0)/inc*100;
+      notes.push(pm>33?`<span class="warn">Die Miete beansprucht ${pm.toFixed(1)} % deines Einkommens.</span> Als Faustregel gilt höchstens ein Drittel.`:`Die Miete liegt mit ${pm.toFixed(1)} % unter der Faustregel von einem Drittel.`); }
+    const a = data.save.find(i=>/3a/i.test(i.name));
+    if(a){ const y=(Number(a.amount)||0)*12;
+      notes.push(y>SAULE3A_MAX?`<span class="warn">Säule 3a: ${chf(y)} pro Jahr übersteigt das Maximum von ${chf(SAULE3A_MAX)}.</span> Der Überschuss ist nicht abziehbar.`
+        : y<SAULE3A_MAX?`Säule 3a: Bis zum Maximum fehlen ${chf((SAULE3A_MAX-y)/12)} pro Monat. Jeder Franken davon senkt deine Steuern.`
+        : `<span class="ok">Säule 3a: Du schöpfst das Maximum aus.</span>`); }
+    const aus = fix+vr, n = data.save.find(i=>/notgroschen|frei/i.test(i.name));
+    if(aus>0){ const ziel=aus*3, mon = n&&Number(n.amount)>0?Math.ceil(ziel/Number(n.amount)):null;
+      notes.push(`Notgroschen-Ziel (3 Monatsausgaben): ${chf(ziel)}.`+(mon?` Mit deiner Sparrate erreichst du es in etwa ${mon} Monaten.`:"")); }
+    if(data.fix.some(i=>/krankenkasse/i.test(i.name)&&Number(i.amount)>0))
+      notes.push("Krankenkasse: Die Grundversicherung kannst du jeweils bis 30. November auf Anfang Jahr wechseln. Vergleiche auf priminfo.admin.ch.");
+  }
+
+  v.innerHTML = `
+    <div class="sec-head"><div><h1>Auswertung</h1><p>Dein Monat auf einen Blick</p></div></div>
+    <div class="card">
+      <h2>Zusammenfassung</h2>
+      <div class="line"><span>Total Einnahmen</span><b>${chf(inc)}</b></div>
+      <div class="line"><span>− Fixkosten</span><b>${chf(fix)}</b></div>
+      <div class="line"><span>− Variable Kosten</span><b>${chf(vr)}</b></div>
+      <div class="line"><span>= Verfügbar zum Sparen</span><b class="${avail<0?"neg":""}">${chf(avail)}</b></div>
+      <div class="line"><span>− Geplantes Sparen</span><b>${chf(sv)}</b></div>
+      <div class="line total"><span>Unverplanter Rest</span><span class="${rest<0?"neg":""}">${chf(rest)}</span></div>
+    </div>
+    <div class="card">
+      <h2>50/30/20-Regel</h2>
+      ${rows.map(([n,t,val,low,c]) => { const [cl,txt]=rate(val,t,low); return `
+        <div class="bar">
+          <div class="bar-l"><span>${n}</span><span><b>${val.toFixed(1)} %</b> <span class="${cl}">${txt}</span></span></div>
+          <div class="track"><div class="fill" style="width:${Math.min(val,100)}%;background:${c}"></div><div class="goal" style="left:${t}%" title="Ziel ${t} %"></div></div>
+        </div>`; }).join("")}
+      <p class="hint">Die senkrechte Linie zeigt den Zielwert. Steuern zählen hier zu den Fixkosten, da sie in der Schweiz meist nicht vom Lohn abgezogen werden.</p>
+    </div>
+    <div class="card"><h2>Hinweise</h2><ul>${notes.map(n=>`<li>${n}</li>`).join("")}</ul></div>
+    <div class="tools"><button id="reset">Beispielwerte laden</button><button id="clear">Alles auf 0</button></div>
+    <div class="card" style="margin-top:12px"><h2>Sicherung</h2>
+      <p class="hint" style="margin:0 0 10px">Deine Daten liegen nur in Safari auf diesem iPhone. Kopiere ab und zu eine Sicherung, zum Beispiel in die Notizen-App.</p>
+      <div class="tools"><button id="backup">Sicherung kopieren</button><button id="restore">Sicherung einfügen</button></div>
+    </div>`;
+}
+
+function renderTop(){
+  const {inc,fix,vr,sv,rest} = totals();
+  const r = document.getElementById("rest");
+  r.textContent = chf(rest); r.classList.toggle("neg", rest<0);
+  document.getElementById("inc").textContent = chf(inc);
+  const base = Math.max(inc, fix+vr+sv) || 1;
+  const parts = [["s-fix",fix],["s-var",vr],["s-save",sv]]; if(rest>0) parts.push(["s-rest",rest]);
+  document.getElementById("strip").innerHTML = parts.map(([c,x])=>`<div class="${c}" style="width:${x/base*100}%"></div>`).join("");
+}
+
+function refreshLive(){
+  renderTop();
+  const s = document.getElementById("secSum"); if(s) s.textContent = chf(sum(tab));
+  if(tab!=="income"&&tab!=="eval"){ const inc=sum("income"); data[tab].forEach(i=>{ const e=document.getElementById("p-"+i.id); if(e) e.textContent=pct(Number(i.amount)||0,inc); }); }
+}
+
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("show"),1400); }
+
+let timer;
+function persist(){
+  touched = true;
+  clearTimeout(timer);
+  timer = setTimeout(async()=>{
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(data)); toast("Gespeichert"); }
+    catch(e){ toast("Speichern nicht möglich"); }
+  },700);
+}
+async function load(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(!touched && raw){ const d=JSON.parse(raw); if(["income","fix","var","save"].every(k=>Array.isArray(d[k]))){ data=d; uid=Math.max(0,...Object.values(d).flat().map(i=>i.id)); } }
+  }catch(e){ /* noch nichts gespeichert */ }
+}
+
+// Events
+document.getElementById("nav").addEventListener("click", e => {
+  const b = e.target.closest("button[data-tab]"); if(!b) return;
+  tab = b.dataset.tab; renderNav(); renderView(); window.scrollTo({top:0});
+});
+const view = document.getElementById("view");
+view.addEventListener("input", e => {
+  const it = e.target.closest(".item"); if(!it) return;
+  const item = data[tab].find(i=>i.id==it.dataset.id);
+  if(e.target.dataset.f==="amount") item.amount = parse(e.target.value); else item.name = e.target.value;
+  refreshLive(); persist();
+});
+view.addEventListener("focusin", e => { if(e.target.classList.contains("amt")) e.target.select(); });
+view.addEventListener("click", e => {
+  if(e.target.classList.contains("del")){
+    const id = e.target.closest(".item").dataset.id;
+    data[tab] = data[tab].filter(i=>i.id!=id); renderView(); renderTop(); persist();
+  } else if(e.target.id==="add"){
+    data[tab].push({id:++uid,name:"Neue Position",amount:0}); renderView(); renderTop(); persist();
+    const names = view.querySelectorAll(".name"); const n = names[names.length-1]; n.focus(); n.select();
+  } else if(e.target.id==="reset"){
+    data = build(EXAMPLE); renderView(); renderTop(); persist();
+  } else if(e.target.id==="backup"){
+    const txt = JSON.stringify(data);
+    (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
+      .then(()=>toast("Sicherung kopiert"))
+      .catch(()=>prompt("Kopiere diesen Text als Sicherung:", txt));
+  } else if(e.target.id==="restore"){
+    const txt = prompt("Füge hier deine Sicherung ein:");
+    if(!txt) return;
+    try{ const d=JSON.parse(txt);
+      if(!["income","fix","var","save"].every(k=>Array.isArray(d[k]))) throw 0;
+      data=d; uid=Math.max(0,...Object.values(d).flat().map(i=>i.id)); renderView(); renderTop(); persist(); toast("Sicherung wiederhergestellt");
+    }catch(err){ toast("Text ist keine gültige Sicherung"); }
+  } else if(e.target.id==="clear"){
+    for(const k in data) data[k].forEach(i=>i.amount=0); renderView(); renderTop(); persist();
+  }
+});
+
+// Zuerst sofort anzeigen, dann gespeicherte Daten nachladen (mit Zeitlimit)
+function renderAll(){ renderNav(); renderView(); renderTop(); }
+try{ renderAll(); }catch(e){ document.getElementById("view").textContent = "Fehler beim Anzeigen: " + e.message; }
+Promise.resolve(load())
+  .then(()=>{ try{ renderAll(); }catch(e){} })
+  .catch(()=>{});
+</script>
+</body>
+</html>
