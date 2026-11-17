@@ -55,7 +55,7 @@
   .account{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
   .account b{color:var(--ink);font-weight:600;word-break:break-all}
   .account button{border:1px solid var(--line);background:none;border-radius:10px;min-height:40px;padding:0 14px;flex:none}
-  .login{position:fixed;inset:0;bottom:calc(-1 * var(--app-extra, 0px));z-index:60;background:var(--ink);display:none;align-items:center;justify-content:center;padding:24px;overflow:auto}
+  .login{position:fixed;inset:0;z-index:60;background:var(--ink);display:none;align-items:center;justify-content:center;padding:24px;overflow:auto}
   .login.open{display:flex}
   .login-card{background:var(--card);border-radius:18px;padding:26px 22px;width:100%;max-width:380px}
   .login-logo{margin-bottom:10px;line-height:0}
@@ -162,7 +162,7 @@
   .mf{background:var(--fix)}.mv{background:var(--var)}.ms{background:var(--save)}
 
   /* Monatsauswahl */
-  .sheet-bg{position:fixed;inset:0;bottom:calc(-1 * var(--app-extra, 0px));z-index:20;background:rgba(27,37,51,.45);display:none;align-items:flex-end;justify-content:center}
+  .sheet-bg{position:fixed;inset:0;z-index:20;background:rgba(27,37,51,.45);display:none;align-items:flex-end;justify-content:center}
   .sheet-bg.open{display:flex}
   .sheet{background:var(--card);width:100%;max-width:560px;border-radius:18px 18px 0 0;
     padding:18px 18px calc(18px + env(safe-area-inset-bottom));animation:up .22s ease}
@@ -197,7 +197,7 @@
   nav button i{display:block;width:26px;height:6px;border-radius:3px;background:var(--line)}
   nav button[aria-selected="true"]{color:var(--ink);font-weight:600}
   nav button[aria-selected="true"] i{background:var(--dot)}
-  .toast{position:fixed;left:50%;bottom:calc(80px + env(safe-area-inset-bottom) - var(--app-extra, 0px));transform:translateX(-50%);z-index:30;
+  .toast{position:fixed;left:50%;bottom:calc(80px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:30;
     background:var(--ink);color:#fff;padding:9px 16px;border-radius:20px;font-size:.85rem;opacity:0;transition:opacity .2s;pointer-events:none;
     max-width:90vw;text-align:center}
   .toast.show{opacity:1}
@@ -415,7 +415,7 @@
     .ybelow .add-sec{margin:0}
   }
   /* ---------- Ersteinrichtung ---------- */
-  .onb{position:fixed;top:calc(-1 * env(safe-area-inset-top, 0px));left:0;right:0;bottom:calc(-1 * var(--app-extra, 0px));padding-top:env(safe-area-inset-top, 0px);z-index:55;display:none;background:var(--paper);color:var(--ink)}
+  .onb{position:fixed;top:0;left:0;right:0;bottom:0;z-index:55;display:none;background:var(--paper);color:var(--ink)}
   .onb.open{display:flex;justify-content:center}
   .onb.dark{background:linear-gradient(165deg,#1B2533 0%,#22395A 58%,#2F5D8C 130%);color:#fff}
   .onb-in{width:100%;max-width:460px;height:100%;display:flex;flex-direction:column;overflow-y:auto;
@@ -464,30 +464,30 @@
   .onb-leg{justify-content:center}
   .onb-tip{margin-top:16px;background:rgba(255,255,255,.08);border-radius:14px;padding:11px 13px;font-size:.84rem;text-align:left;line-height:1.4;width:100%}
   .onb-check{display:flex;align-items:center;gap:10px;margin-top:14px;border:none;background:none;color:#fff;font:inherit;font-size:.86rem;text-align:left;cursor:pointer}
-  /* iOS-Home-Bildschirm: Überlagerungen im (verlängerten) Body statt am zu kurzen Viewport ausrichten */
-  html.ios-pwa .login, html.ios-pwa .sheet-bg, html.ios-pwa .onb{position:absolute;top:0;left:0;right:0;bottom:0;padding-top:0}
-  html.ios-pwa .toast{position:absolute;bottom:calc(80px + env(safe-area-inset-bottom))}
   @media (prefers-reduced-motion:reduce){.strip div,.toast{transition:none}.sheet{animation:none}}
 </style>
 <script>
   // iOS-Home-Bildschirm: Inhalt unter der Statusleiste (dunkler Kopf bis ganz oben).
-  // Manche iOS-Versionen rechnen die Höhe dann ohne Statusleiste; die fehlende Höhe wird hier unten ergänzt.
+  // Manche iOS-Versionen verkleinern den Anzeigebereich nach dem Zurückkehren in die App fälschlich um die Höhe der Statusleiste.
+  // Dann versuchen wir, iOS zu einer Neuberechnung zu bewegen, statt den Inhalt zu strecken (das schneidet ihn ab).
   (function(){
     var standalone = navigator.standalone === true;
-    if(standalone) document.documentElement.classList.add("ios-pwa");
-    function fixHeight(){
-      if(!standalone || !document.body) return;
-      var portrait = window.innerHeight >= window.innerWidth;
-      var full = portrait ? Math.max(screen.height, screen.width) : Math.min(screen.height, screen.width);
-      var diff = full - window.innerHeight;
-      if(diff > 0 && diff <= 80){ document.body.style.height = (window.innerHeight + diff) + "px"; document.documentElement.style.setProperty("--app-extra", diff + "px"); }
-      else if(diff <= 0){ document.body.style.height = ""; document.documentElement.style.setProperty("--app-extra", "0px"); }
-      // grössere Unterschiede (z. B. offene Tastatur) nicht verändern
+    if(!standalone) return;
+    function full(){ var p = window.innerHeight >= window.innerWidth; return p ? Math.max(screen.height, screen.width) : Math.min(screen.height, screen.width); }
+    function nudge(){
+      var vp = document.querySelector('meta[name="viewport"]'); if(!vp) return;
+      var c = vp.getAttribute("content");
+      vp.setAttribute("content", c + ", maximum-scale=1.0001");
+      setTimeout(function(){ vp.setAttribute("content", c); window.scrollTo(0, 0); }, 60);
     }
-    window.addEventListener("resize", fixHeight);
-    window.addEventListener("orientationchange", function(){ setTimeout(fixHeight, 300); });
-    document.addEventListener("DOMContentLoaded", fixHeight);
-    window.addEventListener("load", fixHeight);
+    function check(why){
+      var diff = full() - window.innerHeight;
+      try{ if(typeof diag==="function") diag("Höhe " + why + ": " + window.innerHeight + " / " + full()); }catch(e){}
+      if(diff > 0 && diff <= 80) nudge();
+    }
+    window.addEventListener("pageshow", function(){ setTimeout(function(){ check("Start"); }, 400); });
+    document.addEventListener("visibilitychange", function(){ if(!document.hidden) setTimeout(function(){ check("Rückkehr"); }, 400); });
+    window.addEventListener("orientationchange", function(){ setTimeout(function(){ check("Drehen"); }, 400); });
   })();
 </script>
 </head>
@@ -629,7 +629,7 @@
 
 <script>
 const IS_PC = false;
-const APP_VERSION = "8.4";
+const APP_VERSION = "8.5";
 const KEY = "budgetplaner-chf-v3";      // alle Personen und Monate
 const KEY_V2 = "budgetplaner-chf-v2";   // frühere Version (eine Person)
 const KEY_OLD = "budgetplaner-chf-v1";  // frühere Version (ein Budget)
